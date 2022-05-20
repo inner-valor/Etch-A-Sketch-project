@@ -1,0 +1,40 @@
+#container {
+    border: 1px solid #000000;
+    width: 300px;
+    height: 300px;
+    display: grid;
+    
+    
+    
+}
+
+
+.grid4x4 {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(4, auto);
+}
+
+.grid16x16 {
+    grid-template-columns: repeat(16, auto);
+    grid-template-rows: repeat(16, auto);
+}
+
+.grid64x64 {
+    grid-template-columns: repeat(64, auto);
+    grid-template-rows: repeat(64, auto);
+}
+
+.grid100x100 {
+    grid-template-columns: repeat(100, auto);
+    grid-template-rows: repeat(100, auto);
+}
+
+/* colors */
+.black {
+    background-color: #000000;
+
+}
+
+.blue {
+    background-color: #0000ff;
+}
