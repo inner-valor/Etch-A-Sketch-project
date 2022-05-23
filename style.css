@@ -1,17 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(103, 199, 195);
+}
+
+
 #container {
     border: 1px solid #000000;
     width: 500px;
     height: 500px;
     display: grid;
-    
+    background-color: whitesmoke;
     
     
 }
 
 
-.grid4x4 {
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: repeat(4, auto);
+.grid8x8 {
+    grid-template-columns: repeat(8, auto);
+    grid-template-rows: repeat(8, auto);
 }
 
 .grid16x16 {
@@ -37,4 +44,44 @@
 
 .blue {
     background-color: #0000ff;
+}
+
+/* reset and new grid button */
+#reset, .dropdown #dropbtn {
+    height: 25px;
+}
+
+
+/* dropdown container */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0 40px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* content inside the container */
+
+.dropdown-content p {
+    color: black;
+    margin: 0;
+    padding: 12px 16px;
+    display: block;
+  }
+
+.dropdown-content p:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
 }

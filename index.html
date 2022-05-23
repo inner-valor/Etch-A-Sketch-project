@@ -9,11 +9,22 @@
 </head>
 <body>
     <button id="reset">Reset</button>
-    <button id="new-grid">New grid</button>
-    <div id="container" class="grid16x16">
-        
 
+    <div class="dropdown">
+       <button class="dropbtn">New grid</button>
+       <div id="myDropdown" class="dropdown-content">
+        <p id="grid8">8x8</p>
+        <p id="grid16">16x16</p>
+        <p id="grid64">64x64</p>
+        <p id="grid100">100x100</p>
+       </div>
     </div>
+    
+    <div>
+        <h1 id="grid-label"></h1>
+        <div id="container" class="grid16x16"></div>
+    </div>
+
     
 
     <script src="javascript.js"></script>

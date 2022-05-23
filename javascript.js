@@ -1,6 +1,7 @@
 const container = document.querySelector('#container');
-const createDiv = document.createElement('div');
 const reset = document.querySelector('#reset');
+const createDiv = document.createElement('div');
+const gridLabel = document.querySelector('#grid-label');
 
 createDiv.classList.add('div');
 
@@ -10,8 +11,9 @@ let divCount = 0; //the amount of divs added to the container
 
 
 // replace the grid with one of the grid function
-function grid4x4() {
-    document.getElementById('container').className = 'grid4x4';
+function grid8x8() {
+    document.getElementById('container').className = 'grid8x8';
+    gridLabel.textContent = 'Grid 8x8';
 
     if (container.childNodes.length > 1) {
         for (divCount; divCount !== 0; divCount--) {
@@ -19,14 +21,14 @@ function grid4x4() {
 
         }
 
-        for (divCount = 0; divCount !== 16; divCount++) {
+        for (divCount = 0; divCount !== 64; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
 
         divFunction()
 
     } else {
-        for (divCount = 0; divCount !== 16; divCount++) {
+        for (divCount = 0; divCount !== 64; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
 
@@ -38,6 +40,7 @@ function grid4x4() {
 
 function grid16x16() {
     document.getElementById('container').className = 'grid16x16';
+    gridLabel.textContent = 'Grid 16x16';
 
     if (container.childNodes.length > 1) {
         for (divCount; divCount !== 0; divCount--) {
@@ -64,6 +67,7 @@ function grid16x16() {
 
 function grid64x64() {
     document.getElementById('container').className = 'grid64x64';
+    gridLabel.textContent = 'Grid 64x64';
 
     if (container.childNodes.length > 1) {
         for (divCount; divCount !== 0; divCount--) {
@@ -90,6 +94,7 @@ function grid64x64() {
 
 function grid100x100() {
     document.getElementById('container').className = 'grid100x100';
+    gridLabel.textContent = 'Grid 100x100';
 
     if (container.childNodes.length > 1) {
         for (divCount; divCount !== 0; divCount--) {
@@ -135,5 +140,39 @@ function divFunction() {
     }
     
 }
+
+// new grid button
+const dropBtn = document.querySelector('.dropbtn');
+
+dropBtn.addEventListener('click', dropToggle);
+
+function dropToggle() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+// when the menu is open and user clicks something else the menu closes
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        let dropDowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropDowns.length; i++) {
+            let openDropdown = dropDowns[i];
+            if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+// dropdown content
+const grid8 = document.querySelector('#grid8');
+const grid16 = document.querySelector('#grid16');
+const grid64 = document.querySelector('#grid64');
+const grid100 = document.querySelector('#grid100');
+
+grid8.addEventListener("click", () => {grid8x8() });
+grid16.addEventListener("click", () => {grid16x16() });
+grid64.addEventListener("click", () => {grid64x64() });
+grid100.addEventListener("click", () => {grid100x100() });
+
+
 
 grid16x16();
