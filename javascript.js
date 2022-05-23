@@ -1,7 +1,8 @@
 const container = document.querySelector('#container');
 const reset = document.querySelector('#reset');
-const createDiv = document.createElement('div');
 const gridLabel = document.querySelector('#grid-label');
+
+const createDiv = document.createElement('div');
 
 createDiv.classList.add('div');
 
@@ -13,7 +14,7 @@ let divCount = 0; //the amount of divs added to the container
 // replace the grid with one of the grid function
 function grid8x8() {
     document.getElementById('container').className = 'grid8x8';
-    gridLabel.textContent = 'Grid 8x8';
+    gridLabel.textContent = 'Grid 8x8'; // label for container
 
     if (container.childNodes.length > 1) {
         for (divCount; divCount !== 0; divCount--) {
@@ -24,18 +25,15 @@ function grid8x8() {
         for (divCount = 0; divCount !== 64; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
-
         divFunction()
 
     } else {
         for (divCount = 0; divCount !== 64; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
-
         divFunction();
     }
-
-    
+ 
 }
 
 function grid16x16() {
@@ -51,18 +49,15 @@ function grid16x16() {
         for (divCount = 0; divCount !== 256; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
-
         divFunction();
 
     } else {
         for (divCount = 0; divCount !== 256; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
-
         divFunction();
     }
 
-    
 }
 
 function grid64x64() {
@@ -78,18 +73,15 @@ function grid64x64() {
         for (divCount = 0; divCount !== 4096; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
-
         divFunction();
 
     } else {
         for (divCount = 0; divCount !== 4096; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
-
         divFunction();
     }
 
-    i = 0;
 }
 
 function grid100x100() {
@@ -105,14 +97,12 @@ function grid100x100() {
         for (divCount = 0; divCount !== 10000; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
-
         divFunction();
 
     } else {
         for (divCount = 0; divCount !== 10000; divCount++) {
             container.appendChild(createDiv.cloneNode(true));
         }
-
         divFunction();
     }
 
@@ -122,23 +112,24 @@ function grid100x100() {
 
 //reset button
 //when button is click the grid reset to the default grid 'grid16x16'
+//add soon: reset button resets the current size
 
 reset.addEventListener('click', () => {
     grid16x16();
 });
 
 // when mouse hover over div the div change class
-let div = document.getElementsByClassName("div");
-
-
+// add soon: a color picker when click on change the color of the hover funtions
+// let divs = document.getElementsByClassName("div");
 
 function divFunction() {
-    for (let i = 0; i <= divCount; i++) {
-        div[i].addEventListener('mouseover', function() {
-            div[i].classList.add('black');
+    let divs = document.querySelectorAll(".div");
+
+    divs.forEach(function(elem) {
+        elem.addEventListener("mouseover", function() {
+            elem.classList.add('black');
         });
-    }
-    
+    });
 }
 
 // new grid button
@@ -172,7 +163,5 @@ grid8.addEventListener("click", () => {grid8x8() });
 grid16.addEventListener("click", () => {grid16x16() });
 grid64.addEventListener("click", () => {grid64x64() });
 grid100.addEventListener("click", () => {grid100x100() });
-
-
 
 grid16x16();
